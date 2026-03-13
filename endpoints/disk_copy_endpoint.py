@@ -12,4 +12,4 @@ class ResourcesCopyEndpoint(BaseEndpoint):
         if fields:
             params["fields"] = ",".join(fields)
 
-        return self.request("POST", "/resources/copy", params=params)
+        return self.request("POST", "/v1/disk/resources/copy", params=params)

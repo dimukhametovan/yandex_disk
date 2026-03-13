@@ -10,4 +10,4 @@ class DeleteEndpoint(BaseEndpoint):
             params["md5"] = md5
         if fields:
             params["fields"] = ",".join(fields)
-        return self.request("DELETE", "/resources", params=params)
+        return self.request("DELETE", "/v1/disk/resources", params=params)

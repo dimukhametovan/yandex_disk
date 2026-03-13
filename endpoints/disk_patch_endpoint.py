@@ -7,4 +7,4 @@ class ResourcesPatchEndpoint(BaseEndpoint):
 		}
 		if fields:
 			params["fields"] = ",".join(fields)
-		return self.request("PATCH", "/resources", params=params, json=body)
+		return self.request("PATCH", "/v1/disk/resources", params=params, json=body)

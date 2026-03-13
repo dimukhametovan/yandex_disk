@@ -1,7 +1,7 @@
 import allure
 
 
-@allure.title("POST /disk/resources/copy Happy Path - Async")
+@allure.title("POST /v1/disk/resources/copy Happy Path - Async")
 def test_copy_file_async_success(copy_api):
     src = "/test/test.bin"
     dst = "/test/test_copy.bin"
@@ -12,7 +12,7 @@ def test_copy_file_async_success(copy_api):
     response.assert_field_type("href", str)
 
 
-@allure.title("POST /disk/resources/copy Happy Path")
+@allure.title("POST /v1/disk/resources/copy Happy Path")
 def test_copy_file_sync_success(copy_api):
     src = "/test/test.txt"
     dst = "/test/test_copy.txt"
@@ -23,7 +23,7 @@ def test_copy_file_sync_success(copy_api):
     response.assert_field_type("href", str)
 
 
-@allure.title("POST /disk/resources/copy DiskNotFoundError")
+@allure.title("POST /v1/disk/resources/copy DiskNotFoundError")
 def test_copy_non_existing_source(copy_api):
     src = "/test/non_existing_file.txt"
     dst = "/test/test_copy.txt"
@@ -33,7 +33,7 @@ def test_copy_non_existing_source(copy_api):
     response.assert_error("DiskNotFoundError")
 
 
-@allure.title("POST /disk/resources/copy DiskResourceAlreadyExistsError")
+@allure.title("POST /v1/disk/resources/copy DiskResourceAlreadyExistsError")
 def test_copy_existing_destination(copy_api):
     src = "/test/test.txt"
     dst = "/test/test_copy.txt"

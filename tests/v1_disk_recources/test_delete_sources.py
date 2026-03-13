@@ -1,7 +1,7 @@
 import allure
 
 
-@allure.title("DELETE /disk/resources 204 Happy Path")
+@allure.title("DELETE /v1/disk/resources 204 Happy Path")
 def test_delete_file_to_trash_sync(delete_api):
     path = "test/delete_file.txt"
 
@@ -9,7 +9,7 @@ def test_delete_file_to_trash_sync(delete_api):
     response.assert_status(204) 
     
 
-@allure.title("DELETE /disk/resources 202 Happy Path - Async")
+@allure.title("DELETE /v1/disk/resources 202 Happy Path - Async")
 def test_delete_file_async(delete_api):
     path = "/test/delete_file.bin"
 
@@ -21,7 +21,7 @@ def test_delete_file_async(delete_api):
     
 
 
-@allure.title("DELETE /disk/resources permanently=true")
+@allure.title("DELETE /v1/disk/resources permanently=true")
 def test_delete_file_permanently(delete_api):
     path = "/test/delete_perm.txt"
 
@@ -29,7 +29,7 @@ def test_delete_file_permanently(delete_api):
     response.assert_status_in({202, 204})
     
 
-@allure.title("DELETE /disk/resources: 404 DiskNotFoundError")
+@allure.title("DELETE /v1/disk/resources: 404 DiskNotFoundError")
 def test_delete_non_existing_resource(delete_api):
     path = "/does-not-exist"
 

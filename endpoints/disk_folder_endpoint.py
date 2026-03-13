@@ -5,4 +5,4 @@ class FolderEndpoint(BaseEndpoint):
         params = {"path": path}
         if fields:
             params["fields"] = ",".join(fields)
-        return self.request("PUT", "/resources", params=params)
+        return self.request("PUT", "/v1/disk/resources", params=params)
