@@ -1,18 +1,17 @@
 import allure
-import pytest
 
-@pytest.mark.done
+
 @allure.title("DELETE /disk/resources 204 Happy Path")
 def test_delete_file_to_trash_sync(delete_api):
-    path = "test/test_copy.txt"
+    path = "test/delete_file.txt"
 
     response = delete_api.delete(path=path, permanently=False, force_async=False)
     response.assert_status(204) 
     
-@pytest.mark.done
+
 @allure.title("DELETE /disk/resources 202 Happy Path - Async")
 def test_delete_file_async(delete_api):
-    path = "/test/test_copy.bin"
+    path = "/test/delete_file.bin"
 
     response = delete_api.delete(path=path, force_async=True, permanently=False)
 
@@ -21,15 +20,15 @@ def test_delete_file_async(delete_api):
     response.assert_field_type("href", str)
     
 
-@pytest.mark.done
+
 @allure.title("DELETE /disk/resources permanently=true")
 def test_delete_file_permanently(delete_api):
-    path = "/test/test_copy.txt"
+    path = "/test/delete_perm.txt"
 
     response = delete_api.delete(path=path, permanently=True, force_async=False)
     response.assert_status_in({202, 204})
     
-@pytest.mark.done
+
 @allure.title("DELETE /disk/resources: 404 DiskNotFoundError")
 def test_delete_non_existing_resource(delete_api):
     path = "/does-not-exist"

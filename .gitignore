@@ -4,5 +4,4 @@ __pycache__/
 *.pyc
 allure-results/
 *.bin
-*.txt
 .pytest_cache/

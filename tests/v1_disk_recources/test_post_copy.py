@@ -1,7 +1,6 @@
 import allure
-import pytest
 
-@pytest.mark.done
+
 @allure.title("POST /disk/resources/copy Happy Path - Async")
 def test_copy_file_async_success(copy_api):
     src = "/test/test.bin"
@@ -12,7 +11,7 @@ def test_copy_file_async_success(copy_api):
     response.assert_has_fields("href", "method", "templated")
     response.assert_field_type("href", str)
 
-@pytest.mark.done
+
 @allure.title("POST /disk/resources/copy Happy Path")
 def test_copy_file_sync_success(copy_api):
     src = "/test/test.txt"
@@ -23,7 +22,7 @@ def test_copy_file_sync_success(copy_api):
     response.assert_has_fields("href", "method", "templated")
     response.assert_field_type("href", str)
 
-@pytest.mark.done
+
 @allure.title("POST /disk/resources/copy DiskNotFoundError")
 def test_copy_non_existing_source(copy_api):
     src = "/test/non_existing_file.txt"
@@ -33,7 +32,7 @@ def test_copy_non_existing_source(copy_api):
     response.assert_status(404)
     response.assert_error("DiskNotFoundError")
 
-@pytest.mark.done
+
 @allure.title("POST /disk/resources/copy DiskResourceAlreadyExistsError")
 def test_copy_existing_destination(copy_api):
     src = "/test/test.txt"
